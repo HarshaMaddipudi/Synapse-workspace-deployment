@@ -509,7 +509,8 @@ export class ArtifactClient {
                 if(body != null && response.error != null && response.error.message != null) {
                     msg = response.error.message;
                 }
-                throw new Error(`Checkstatus => status: ${resStatus}; status message: ${msg}`);          
+                // throw new Error(`Checkstatus => status: ${resStatus}; status message: ${msg}`);
+                SystemLogger.info(`Checkstatus => status: ${resStatus}; status message: ${msg}`);       
             }
 
             if (!body) {
