@@ -510,7 +510,7 @@ export class ArtifactClient {
                     msg = response.error.message;
                 }
                 // throw new Error(`Checkstatus => status: ${resStatus}; status message: ${msg}`);
-                SystemLogger.info(`Checkstatus => status: ${resStatus}; status message: ${msg}`);       
+                SystemLogger.warn(`Checkstatus => status: ${resStatus}; status message: ${msg}`);       
             }
 
             if (!body) {
