@@ -33,7 +33,7 @@ async function checkDeploymentStatus(url: string, headers: httpInterfaces.IHeade
         let resStatus = res.message.statusCode;
         SystemLogger.info(`CheckDeploymentStatus: ${resStatus}; status message: ${res.message.statusMessage}`);
         if (resStatus != 200 && resStatus != 201 && resStatus != 202) {
-            throw new Error(`failed => status: ${resStatus}; status message: ${res.message.statusMessage}`);
+            throw new Error(`=> status: ${resStatus}; status message: ${res.message.statusMessage}`);
         }
 
         let body = await res.readBody();
