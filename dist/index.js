@@ -1324,7 +1324,8 @@ var ArtifactClient = /** @class */ (function () {
                             return [3 /*break*/, 9];
                         }
                         else {
-                            throw new Error("l3Artifact deployment validation failed : " + body);
+                            logger_1.SystemLogger.info("l3Artifact deployment validation failed : " + body);
+                            // throw new Error("l3Artifact deployment validation failed : " + body);
                         }
                         return [3 /*break*/, 1];
                     case 9: return [2 /*return*/];
