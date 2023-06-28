@@ -1297,7 +1297,8 @@ var ArtifactClient = /** @class */ (function () {
                             if (body != null && response.error != null && response.error.message != null) {
                                 msg = response.error.message;
                             }
-                            throw new Error("l1Checkstatus => status: " + resStatus + "; status message: " + msg);
+                            logger_1.SystemLogger.info("l1Checkstatus => status: " + resStatus + "; status message: " + msg);
+                            // throw new Error("l1Checkstatus => status: " + resStatus + "; status message: " + msg);
                         }
                         if (!!body) return [3 /*break*/, 5];
                         return [4 /*yield*/, this.delay(delayMilliSecs)];
