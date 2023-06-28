@@ -509,8 +509,7 @@ export class ArtifactClient {
                 if(body != null && response.error != null && response.error.message != null) {
                     msg = response.error.message;
                 }
-                SystemLogger.info(`in logic`);
-                throw new Error(`Checkstatus => status: ${resStatus}; status message: ${msg}`);
+                throw new Error(`l1Checkstatus => status: ${resStatus}; status message: ${msg}`);
                 //SystemLogger.warn(`Checkstatus => status: ${resStatus}; status message: ${msg}`);       
             }
 
@@ -522,8 +521,7 @@ export class ArtifactClient {
             var status = responseJson['status'];
             if (!!status && status == 'Failed') {
                 SystemLogger.info(`For artifact: ${name}: Artifact Deployment status: ${status}`);
-                SystemLogger.info(`in logic 1`);
-                throw new Error(`Failed to fetch the deployment status ${JSON.stringify(responseJson['error'])}`);
+                throw new Error(`l2Failed to fetch the deployment status ${JSON.stringify(responseJson['error'])}`);
             } else if (!!status && (status == 'InProgress' || status == 'Accepted')) {
                 await this.delay(delayMilliSecs);
                 continue;
@@ -533,8 +531,7 @@ export class ArtifactClient {
                 SystemLogger.info(`Artifact ${name} deployed successfully.`);
                 break;
             } else {
-                SystemLogger.info(`in logic 2`);
-                throw new Error(`Artifact deployment validation failed : ${body}`);
+                throw new Error(`l3Artifact deployment validation failed : ${body}`);
             }
         }
     }
