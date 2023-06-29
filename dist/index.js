@@ -1321,13 +1321,13 @@ var ArtifactClient = /** @class */ (function () {
                         artifactName = responseJson['name'];
                         if (artifactName === name || status === "Succeeded") {
                             logger_1.SystemLogger.info("Artifact " + name + " deployed successfully.");
-                            return [3 /*break*/, 9];
+                            // return [3 /*break*/, 9];
                         }
                         else {
                             logger_1.SystemLogger.info("l3Artifact deployment validation failed : " + body);
                             // throw new Error("l3Artifact deployment validation failed : " + body);
                         }
-                        return [3 /*break*/, 1];
+                        return [3 /*break*/, 9];
                     case 9: return [2 /*return*/];
                 }
             });
