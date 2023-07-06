@@ -1,8 +1,10 @@
 name: Pull latest build from Parent repo
 
-on: 
-    repository_dispatch:
-        types: [my-event]
+# on: 
+#     repository_dispatch:
+#         types: [my-event]
+on:
+  workflow_dispatch:
 
 jobs:
   pull_update:
