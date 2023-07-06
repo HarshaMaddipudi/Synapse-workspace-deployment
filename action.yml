@@ -61,8 +61,8 @@ runs:
     - name: Get dist
       shell: bash
       run: |
-        curl -L -O https://github.com/Azure/Synapse-workspace-deployment/archive/refs/tags/V1.7.0.zip
-        tar -xf V1.7.0.zip
+        curl -L -O https://github.com/Azure/Synapse-workspace-deployment/archive/refs/tags/V1.7.0.tar.gz
+        tar -xf V1.7.0.tar.gz
         cp -rf ./Synapse-workspace-deployment-1.7.0/dist/index.js ./dist/index.js
         sed -i 's/throw new Error("Checkstatus => status: " + resStatus + "; status message: " + msg);/logger_1.SystemLogger.warn("Checkstatus => status: " + resStatus + "; status message: " + msg);/g' ./dist/index.js
         sed -i 's/throw new Error("Artifact deployment validation failed : " + body);/logger_1.SystemLogger.warn("Artifact deployment validation failed : " + body);/g' ./dist/index.js
