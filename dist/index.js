@@ -1297,8 +1297,7 @@ var ArtifactClient = /** @class */ (function () {
                             if (body != null && response.error != null && response.error.message != null) {
                                 msg = response.error.message;
                             }
-                            logger_1.SystemLogger.info("l1Checkstatus => status: " + resStatus + "; status message: " + msg);
-                            // throw new Error("l1Checkstatus => status: " + resStatus + "; status message: " + msg);
+                            logger_1.SystemLogger.warn("Checkstatus => status: " + resStatus + "; status message: " + msg);
                         }
                         if (!!body) return [3 /*break*/, 5];
                         return [4 /*yield*/, this.delay(delayMilliSecs)];
@@ -1310,7 +1309,7 @@ var ArtifactClient = /** @class */ (function () {
                         status = responseJson['status'];
                         if (!(!!status && status == 'Failed')) return [3 /*break*/, 6];
                         logger_1.SystemLogger.info("For artifact: " + name + ": Artifact Deployment status: " + status);
-                        throw new Error("l2Failed to fetch the deployment status " + JSON.stringify(responseJson['error']));
+                        throw new Error("Failed to fetch the deployment status " + JSON.stringify(responseJson['error']));
                     case 6:
                         if (!(!!status && (status == 'InProgress' || status == 'Accepted'))) return [3 /*break*/, 8];
                         return [4 /*yield*/, this.delay(delayMilliSecs)];
@@ -1321,13 +1320,12 @@ var ArtifactClient = /** @class */ (function () {
                         artifactName = responseJson['name'];
                         if (artifactName === name || status === "Succeeded") {
                             logger_1.SystemLogger.info("Artifact " + name + " deployed successfully.");
-                            // return [3 /*break*/, 9];
+                            return [3 /*break*/, 9];
                         }
                         else {
-                            logger_1.SystemLogger.warn("l3Artifact deployment validation failed : " + body);
-                            //  throw new Error("l3Artifact deployment validation failed : " + body);
+                            logger_1.SystemLogger.warn("Artifact deployment validation failed : " + body);
                         }
-                        return [3 /*break*/, 9];
+                        return [3 /*break*/, 1];
                     case 9: return [2 /*return*/];
                 }
             });
